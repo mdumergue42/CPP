@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Principal.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 15:18:26 by madumerg          #+#    #+#             */
-/*   Updated: 2024/09/30 21:58:12 by madumerg         ###   ########.fr       */
+/*   Created: 2024/10/07 14:32:15 by madumerg          #+#    #+#             */
+/*   Updated: 2024/10/07 14:33:13 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef PRINCIPAL_HPP
+# define PRINCIPAL_H
 
-int	main(int ac, char **av)
-{
-	for(int j = 1; j < ac; j++)
-	{
-		for (int i = 0; av[j][i]; i++)
-			av[j][i] = std::toupper(av[j][i]);
-		std::cout << av[j];
-	}
-	std::cout << std::endl;
-	return 0;
-}
+#include <string>
+#include <cstring>
+#include <iostream>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
+
+#endif

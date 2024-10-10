@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 15:18:26 by madumerg          #+#    #+#             */
-/*   Updated: 2024/09/30 21:58:12 by madumerg         ###   ########.fr       */
+/*   Created: 2024/09/30 22:25:24 by madumerg          #+#    #+#             */
+/*   Updated: 2024/10/10 21:58:42 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef	PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(int ac, char **av)
-{
-	for(int j = 1; j < ac; j++)
-	{
-		for (int i = 0; av[j][i]; i++)
-			av[j][i] = std::toupper(av[j][i]);
-		std::cout << av[j];
-	}
-	std::cout << std::endl;
-	return 0;
-}
+#include "Contact.hpp"
+#include "Principal.hpp"
+
+class	PhoneBook {
+
+public :
+
+//	PhoneBook(void);
+//	~PhoneBook(void);
+
+	void	addContact(void);
+	void	searchContact(void);
+	Contact	directory[8];
+};
+
+#endif
