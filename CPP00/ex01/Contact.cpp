@@ -6,11 +6,11 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:04:30 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/10 22:05:41 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/12 18:16:02 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void) {
 	empty = false;

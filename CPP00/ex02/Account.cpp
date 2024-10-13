@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Principal.hpp                                      :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 14:32:15 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/07 14:33:13 by madumerg         ###   ########.fr       */
+/*   Created: 2024/10/12 19:24:40 by madumerg          #+#    #+#             */
+/*   Updated: 2024/10/13 12:40:52 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINCIPAL_HPP
-# define PRINCIPAL_H
+#include "Account.hpp"
 
-#include <string>
-#include <cstring>
-#include <iostream>
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
+void	Account::displayStatus( void ) const {
+	return;
+}
 
-#endif
+int	Account::getNbDeposits( void ) {
+	return _totalnbDeposits;
+}
+
+void	Account::makeDeposit( int deposit ) {
+	deposit = getNbDeposits();
+}
+
+void	Account::displayAccountsInfos( void ) {
+
+}
+
+bool	Account::makeWithdrawal( int withdrawal ) {
+
+}
+
+

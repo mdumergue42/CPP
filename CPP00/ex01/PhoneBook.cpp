@@ -6,15 +6,22 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:31:19 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/10 23:12:21 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/12 19:00:25 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include "Principal.hpp"
 
-std::string	CutStr(std::string tmp) {
+PhoneBook::PhoneBook(void) {
+	std::cout << "Constructor called" << std::endl;
+	return;
+}
+
+PhoneBook::~PhoneBook(void) {
+	std::cout << "Destructor called" << std::endl;
+	return;
+}
+std::string	PhoneBook::CutStr(std::string tmp) {
 
 	if (tmp.size() > 10)
 		tmp.replace(9, 1, ".");
@@ -36,79 +43,99 @@ void	PhoneBook::addContact(void) {
 	if (tmp[0].size() == 0 || tmp[1].size() == 0 || tmp[2].size() == 0 || \
 			tmp[3].size() == 0 || tmp[4].size() == 0)
 	{
-		std::cout << "No information can be empty. Contact is not added." << std::endl;
+		std::cerr << "No information can be empty. Contact is not added." << std::endl;
 		return;
 	}
-	for (static int i = 0; i < 8; i++) {
-	
+	for (int i = 0; i < 8; i++) {
+
 		if (directory[i].empty == false)
 		{
-			std::cout << "i -> " << i << std::endl;
 			this->directory[i].setName(tmp[0]);
-			this->directory[i].setLastName(tmp[1].substr(0,10));
-			this->directory[i].setNickName(tmp[2].substr(0,10));
-			this->directory[i].setNumber(tmp[3].substr(0,10));
-			this->directory[i].setSecret(tmp[4].substr(0,10));
+			this->directory[i].setLastName(tmp[1]);
+			this->directory[i].setNickName(tmp[2]);
+			this->directory[i].setNumber(tmp[3]);
+			this->directory[i].setSecret(tmp[4]);
 			this->directory[i].empty = true;
 			return;
 		}
 		if (i == 7 && directory[i].empty == true)
 		{
-			this->directory[0].setName(tmp[0]);
-			this->directory[0].setLastName(tmp[1].substr(0,10));
-			this->directory[0].setNickName(tmp[2].substr(0,10));
-			this->directory[0].setNumber(tmp[3].substr(0,10));
-			this->directory[0].setSecret(tmp[4].substr(0,10));
+			static int r = 0;
+			if (r == 7)
+				r = 0;
+			this->directory[r].setName(tmp[0]);
+			this->directory[r].setLastName(tmp[1]);
+			this->directory[r].setNickName(tmp[2]);
+			this->directory[r].setNumber(tmp[3]);
+			this->directory[r].setSecret(tmp[4]);
+			r++;
 			return;
 		}
 	}
 }
 
-#include <iomanip>
+void	PhoneBook::printTabSearch(void) {
+	for (int i = 0; i < 8 && directory[i].empty == true; i++) {
+		std::cout << "𖣐———————————————————————————————————————————𖣐" << std::endl;
+		std::cout << "|" << std::setw(10) << i << "|" << std::setw(10) << this->CutStr(directory[i].getName()).substr(0,10) << "|" << std::setw(10) << this->CutStr(directory[i].getLastName()).substr(0,10) << "|" << std::setw(10) << this->CutStr(directory[i].getNickName()).substr(0,10) << "|" << std::endl;
+		std::cout << "𖣐———————————————————————————————————————————𖣐" << std::endl;
+	}
+	return;
+}
+
+void	PhoneBook::printContactFound(int i) {
+
+	if (directory[i].empty == true)
+	{
+		std::cout << "First Name : " << directory[i].getName() << std::endl;
+		std::cout << "Last Name : " << directory[i].getLastName() << std::endl;
+		std::cout << "Nickname : " << directory[i].getNickName() << std::endl;
+		std::cout << "Phone number : " << directory[i].getNumber() << std::endl;
+		std::cout << "Darkest Secret : " << directory[i].getSecret() << std::endl;
+		return;
+	}
+	std::cout << "Doesn't exist" << std::endl;
+}
 
 void	PhoneBook::searchContact(void) {
 
-	int		x;
+	std::string	index;
+	int			i = -1;
 
+	printTabSearch();
 	std::cout << "Enter contact index ▷ ";
-	std::cin >> x;
-	std::cout << directory[x].getName() << std::endl;
-	if (x >= 0 && x < 8)
+	std::getline(std::cin, index);
+	if (index.size() == 0 || index.size() > 1 || !(std::isdigit(index[0])))
 	{
-		std::cout << "𖣐————————————————————————————————————————————————————————𖣐" << std::endl;
-	//	std::cout << "|" << std::setw(10) << CutStr(getName()) << "|" << std::setw(10) << getLastName() << "|" << std::setw(10) << getNickName() << "|" << std::setw(10) << getNumber() << "|" << std::setw(10) << getSecret() << "|" << std::endl;
-		std::cout << "𖣐————————————————————————————————————————————————————————𖣐" << std::endl;
+		std::cerr << "Wrong index" << std::endl;
+		return;
 	}
+	i = std::atoi(index.c_str());
+	if (i >= 0 && i <= 8)
+		printContactFound(i);
 	else
-		std::cout << "Wrong index" << std::endl;
+	{
+		std::cerr << "Wrong index" << std::endl;
+		return;
+	}
+	return;
 }
-#include <cstdlib>
 
 int	main(void)
 {
 	std::string	instruction;
 	PhoneBook	instance;
 
-	Contact	c;
-
-	while (1)
+	while (instruction != "EXIT")
 	{
 		std::cout << "What do you want to do ? ";
 		std::getline (std::cin,instruction);
-		if (std::strcmp(instruction.c_str(), "ADD") == 0)
+		if (std::cin.eof())
+			return 1;
+		if (instruction == "ADD")
 			instance.addContact();
-		else if (std::strcmp(instruction.c_str(), "SEARCH") == 0)
+		else if (instruction == "SEARCH")
 			instance.searchContact();
-		else if (std::strcmp(instruction.c_str(), "EXIT") == 0)
-			exit(1);
-		else
-			std::cout << "You can enter only ADD or SEARCH or EXIT." << std::endl;
 	}
-//	std::cout << "AFTER WHILE name in private ->" << contact.getName() << std::endl;
-//	std::cout << "name in private ->" << contact.getName() << std::endl;
-//	std::cout << "latsname in private ->" << contact.getLastName() << std::endl;
-//	std::cout << "nickname in private ->" << contact.getNickName() << std::endl;
-//	std::cout << "phone number in private ->" << contact.getNumber() << std::endl;
-//	std::cout << "secret in private ->" << contact.getSecret() << std::endl;
 	return 0;
 }
