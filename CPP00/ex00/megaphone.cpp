@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:18:26 by madumerg          #+#    #+#             */
-/*   Updated: 2024/09/30 21:58:12 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:18:14 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 int	main(int ac, char **av)
 {
+	if (ac == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return 1;
+	}
 	for(int j = 1; j < ac; j++)
 	{
 		for (int i = 0; av[j][i]; i++)

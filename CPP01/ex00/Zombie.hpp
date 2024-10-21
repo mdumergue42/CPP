@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:28:01 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/13 18:46:01 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:18:09 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@
 class	Zombie {
 
 	public :
-		void	announce(void);
+		void		announce(void);
 
+		Zombie(std::string name_z);
+		~Zombie(void);
 	private :
-		std::string	name;
+		std::string	_name;
 };
+
+void		randomChump(std::string name);
+Zombie*		newZombie(std::string name);
 
 #endif
