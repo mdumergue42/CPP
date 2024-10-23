@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:37:48 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/23 10:36:33 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:04:32 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(void)
 		club.setType("some other type of club");
 		bob.attack();
 	}
-	std::cout << std::endl;
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
