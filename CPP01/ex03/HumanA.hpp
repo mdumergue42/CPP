@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:37:31 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/21 14:43:19 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:45:01 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@
 
 class	HumanA {
 	public :
-		HumanA(std::string, Weapon);
-		HumanA(void);
+		HumanA(std::string, Weapon &);
 		~HumanA(void);
 		
-		Weapon	& ref;	
+		Weapon	& ref;
 	
 		std::string	getNameA(void) const;
 		void		setNameA(std::string);

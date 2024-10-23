@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:04:30 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/12 18:16:02 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:35:51 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 Contact::Contact(void) {
 	empty = false;
-	std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Contact::~Contact(void) {
-	std::cout << "Destructor called" << std::endl;
 	return;
 }
 

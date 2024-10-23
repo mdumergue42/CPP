@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:37:45 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/21 14:10:19 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:41:27 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class	Weapon {
 		void				setType(std::string Type);
 		std::string const &	getType(void) const;
 
-		Weapon(void);
 		Weapon(std::string);
 		~Weapon(void);
 

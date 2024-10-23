@@ -6,19 +6,17 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:31:19 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/21 09:43:24 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/23 09:14:21 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
-	std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 PhoneBook::~PhoneBook(void) {
-	std::cout << "Destructor called" << std::endl;
 	return;
 }
 std::string	PhoneBook::CutStr(std::string tmp) {
@@ -121,8 +119,11 @@ void	PhoneBook::searchContact(void) {
 	return;
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
+	if (ac != 1)
+		return 1;
+	(void) av;
 	std::string	instruction;
 	PhoneBook	instance;
 

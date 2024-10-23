@@ -1,4 +1,4 @@
-NAME = brain
+NAME = weappon
 
 CC = c++
 
@@ -11,7 +11,7 @@ SRCS = main.cpp \
 
 OBJS = $(addprefix $(OBJSDIR), $(SRCS:.cpp=.o))
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -MMD -MP
 
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
