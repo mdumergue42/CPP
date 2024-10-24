@@ -6,7 +6,7 @@
 /*   By: madumerg <madumerg@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:08:06 by madumerg          #+#    #+#             */
-/*   Updated: 2024/10/24 18:45:18 by madumerg         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:17:21 by madumerg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	replaceInFile(char *f, char *s1, char *s2)
 	while (std::getline(file, contain)) 
 	{
 		pos = 0;
-		while ((pos = contain.find(s1)))
+		while ((pos = contain.find(s1)) != std::string::npos)
 		{
 			contain.erase(pos, std::string(s1).size());
 			contain.insert(pos, std::string(s2));
