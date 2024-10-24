@@ -1,4 +1,4 @@
-NAME = harl_2_0
+NAME = harl
 
 CC = c++
 
